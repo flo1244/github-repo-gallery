@@ -4,6 +4,8 @@ const username = "flo1244";
 const repoList = document.querySelector(".repo-list");/*Selects the ul*/
 const showInfo = document.querySelector(".repos");/*Selects where repo info appears*/
 const showData = document.querySelector(".repo-data"); /*Selects where repo data appears*/
+const backButton = document.querySelector(".view-repos");/*Selects Back to Repo Gallery button*/
+const filterInput = document.querySelector(".filter-repos"); /*Selects the Search by name placeholder*/
 
 //API connecting to github repos
 const getData = async function () {
@@ -45,6 +47,7 @@ const repoData = async function () {
 
 //Displays info about repos
 const showRepos = function (repos) {
+	filterInput.classList.remove("hide"); /*display input element*/
 	for(const repo of repos){
 		const list = document.createElement("li"); /*creates list item*/
 		list.classList.add("repo");/*adds class repo to item*/
@@ -53,7 +56,7 @@ const showRepos = function (repos) {
 	}
 };
 
-//Click event
+//Click event targets repo info
 repoList.addEventListener("click", function (e){
 	if(e.target.matches("h3")){
 		const repoName = e.target.innerText;
@@ -95,6 +98,33 @@ const displayRepoInfo = function (repoInfo, languages) {
     	<p>Languages: ${languages.join(", ")}</p>
     	<a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
 	showData.append(newDiv);
+	backButton.classList.remove("hide");
 	
 };
+
+//Click event to go back to repo gallery
+backButton.addEventListener("click" , function(){
+	showInfo.classList.remove("hide");
+	showData.classList.add("hide");
+	backButton.classList.add("hide");
+});
+
+//Creating dynamic search
+filterInput.addEventListener("input", function(e){
+	const search = e.target.value;
+	//console.log(search);
+	const repos = document.querySelectorAll(".repo");
+	const searchSmallCase = search.toLowerCase();
+	
+	//Loops through repo and assign it a lowercase value of innerText
+	for(const repo of repos){
+		const repoSmallCase = repo.innerText.toLowerCase();
+		if(repoSmallCase.includes(searchSmallCase)){
+			repo.classList.remove("hide");
+		}else{
+			repo.classList.add("hide");
+		}
+	}
+});
+
 

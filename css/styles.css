@@ -26,8 +26,10 @@ body {
     width: 300px;
 }
 
-.fa-github-alt {
+.fa-github {
     color: #f86d58;
+	font-weight: normal;
+	
 }
 
 img {
