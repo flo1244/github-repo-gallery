@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
 body {
     display: flex;
     align-items: center;
@@ -19,7 +15,7 @@ body {
 }
 
 .hide {
-    /* '!important' is to make sure that when we add the class using JS, it takes precendence */
+    
     display: none !important;
 }
 
@@ -112,7 +108,7 @@ h1 {
 .scroll-down::before {
   top: 30%;
   animation-delay: 0.3s;
-  /* animation: scroll-down 1s ease-in-out infinite; */
+  
 }
 
 @keyframes scroll-down {

@@ -6,11 +6,11 @@ const showInfo = document.querySelector(".repos");/*Selects where repo info appe
 const showData = document.querySelector(".repo-data"); /*Selects where repo data appears*/
 const backButton = document.querySelector(".view-repos");/*Selects Back to Repo Gallery button*/
 const filterInput = document.querySelector(".filter-repos"); /*Selects the Search by name placeholder*/
-const scrollDown = document.querySelector(".scroll-down");
+const scrollDown = document.querySelector(".scroll-down");/*Selects the icon*/
 
 //Scroll event
 document.addEventListener("scroll", function(event){
-			
+		/*Scroll icon will display initially but upon scroll hides*/
 		if("scroll" === true){
 			scrollDown.classList.remove("hide");
 			
@@ -25,10 +25,10 @@ const getData = async function () {
 	const res = await fetch(`https://api.github.com/users/${username}`);
 	const data = await res.json();
 	//console.log(data); 
-	userInfo(data);
+	userInfo(data);/*Retrieves and displays the user info from github profile*/
 };
 
-getData();
+getData(); /*calls the github api retrieving user specific data*/
 
 //Fetch & display user info function
 const userInfo = function (data) {
@@ -80,7 +80,7 @@ repoList.addEventListener("click", function (e){
 
 //Get specific repo info
 const getRepoInfo = async function (repoName) {
-	const fetchInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+	const fetchInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`); /*Allows for any repo to be selected*/
   	const repoInfo = await fetchInfo.json();
   	console.log(repoInfo);
 	
