@@ -1,5 +1,4 @@
-# Github Repo Gallery
-
+# github-repo-gallery
 This is a website that displays the most recent 100 repos from my GitHub Profile. 
 
 ## Table of contents
@@ -10,10 +9,6 @@ This is a website that displays the most recent 100 repos from my GitHub Profile
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -30,8 +25,6 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshot.png)
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
@@ -54,5 +47,4 @@ Used Function Expression for coding my JavaScript. This allowed me to break down
 
 ## Acknowledgments
 
-I've had a long journey through Front-End Development Bootcamp and still more to come. I would like to thank my instructors and the Skillcrush community giving me the knowledge and tools to develop my skills. This journey will continue as I will reinforce my learning with projects and intergrate new languages(React & Ruby). 
-
+I've had a long journey through Front-End Development Bootcamp and still more to come. I would like to thank my instructors and the Skillcrush community giving me the knowledge and tools to develop my skills. This journey will continue as I will reinforce my learning with projects and intergrate new languages(React & Ruby).
