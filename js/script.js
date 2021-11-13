@@ -6,6 +6,19 @@ const showInfo = document.querySelector(".repos");/*Selects where repo info appe
 const showData = document.querySelector(".repo-data"); /*Selects where repo data appears*/
 const backButton = document.querySelector(".view-repos");/*Selects Back to Repo Gallery button*/
 const filterInput = document.querySelector(".filter-repos"); /*Selects the Search by name placeholder*/
+const scrollDown = document.querySelector(".scroll-down");
+
+//Scroll event
+document.addEventListener("scroll", function(event){
+			
+		if("scroll" === true){
+			scrollDown.classList.remove("hide");
+			
+		}else{
+			scrollDown.classList.add("hide");
+		}
+	//console.log(scrollDown);
+});
 
 //API connecting to github repos
 const getData = async function () {
@@ -27,22 +40,22 @@ const userInfo = function (data) {
       <img alt="user avatar" src=${data.avatar_url} />
     </figure>
     <div>
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Bio:</strong> ${data.bio}</p>
-      <p><strong>Location:</strong> ${data.location}</p>
-      <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
+      <p><strong><i class="fad fa-code-branch"></i>&nbsp;&nbsp;Name:</strong> ${data.name}</p>
+      <p><strong><i class="fad fa-code-branch"></i>&nbsp;&nbsp;Bio:</strong> ${data.bio}</p>
+      <p><strong><i class="fad fa-code-branch"></i>&nbsp;&nbsp;Location:</strong> ${data.location}</p>
+      <p><strong><i class="fad fa-code-branch"></i>&nbsp;&nbsp;Number of public repos:</strong> ${data.public_repos}</p>
 	</div>`;
 	overview.append(div);
-	repoData();
+	repoData(username);
 };
 
 //Fetch repos async function 
-const repoData = async function () {
+const repoData = async function (username) {
 	const getRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=update&per_page=100`);
 	const showRepo = await getRepos.json();
 	
 	//console.log(showRepo);
-	showRepos(showRepo);
+	showRepos(showRepo);/*displays our repo on page*/
 };
 
 //Displays info about repos
@@ -60,7 +73,8 @@ const showRepos = function (repos) {
 repoList.addEventListener("click", function (e){
 	if(e.target.matches("h3")){
 		const repoName = e.target.innerText;
-		getRepoInfo(repoName);
+		//console.log(repoName);
+		getRepoInfo(repoName); /*Is triggered with click event --> click on repo name display repo info*/
 	}
 });
 
@@ -82,7 +96,7 @@ const getRepoInfo = async function (repoName) {
 		//console.log(languages)
 	}
   	
-	displayRepoInfo(repoInfo, languages);
+	displayRepoInfo(repoInfo, languages);/*Calls the display specific repo info function --> to see specific repo data displayed on page(description, langauage etc.)*/
 };
 
 //Display sepcific repo info
@@ -93,9 +107,9 @@ const displayRepoInfo = function (repoInfo, languages) {
 	const newDiv = document.createElement("div");
 	newDiv.innerHTML = `
 	<h3>Name: ${repoInfo.name}</h3>
-    	<p>Description: ${repoInfo.description}</p>
-    	<p>Default Branch: ${repoInfo.default_branch}</p>
-    	<p>Languages: ${languages.join(", ")}</p>
+    	<p><i class="fad fa-brackets-curly"></i>&nbsp;Description: ${repoInfo.description}</p>
+    	<p><i class="fad fa-code-merge"></i>&nbsp;&nbsp;&nbsp;Default Branch: ${repoInfo.default_branch}</p>
+    	<p><i class="fad fa-code"></i>&nbsp;Languages: ${languages.join(", ")}</p>
     	<a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
 	showData.append(newDiv);
 	backButton.classList.remove("hide");
