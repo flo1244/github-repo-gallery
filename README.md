@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [](https://github.com/flo1244/github-repo-gallery/find/main)
-- Live Site URL: [](https://flo1244.github.io/github-repo-gallery/)
+- Solution URL: [https://github.com/flo1244/github-repo-gallery/find/main](https://github.com/flo1244/github-repo-gallery/find/main)
+- Live Site URL: [https://flo1244.github.io/github-repo-gallery/](https://flo1244.github.io/github-repo-gallery/)
 
 ## My process
 Used Function Expression for coding my JavaScript. This allowed me to break down the project into smaller parts and allows for better readbility and organization. I used the functions to execute a particular event and to render data from the API.
